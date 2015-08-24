@@ -1,14 +1,23 @@
+// var spaceOutArguments = function(){
+//     var str = "";
+//     var argsArray = Array.prototype.slice.call(arguments);
+//     argsArray.forEach(function(arg){
+//         str += arg + " - ";
+//     });
+//     return str;
+// }
+//This should be constant time O(1) being that no matter how large the input is, we are doing the same operation in 
+//terms of time complexity. But I have to look at what .join() does behind the scenes, maybe its still linear time...
 var spaceOutArguments = function(){
-    var str = "";
+
     var argsArray = Array.prototype.slice.call(arguments);
-    argsArray.forEach(function(arg){
-        str += arg + " - ";
-    });
-    return str;
+
+    var argsString = argsArray.join(' - ');
+    return argsString;
 }
 
-//console.log(spaceOutArguments("Hello", "Levi", "Hashem", "Truly", "Loves", "You"));
-//logs Hello - Levi - Hashem - Truly - Loves - You -
+console.log(spaceOutArguments("Hello", "Levi", "Hashem", "Truly", "Loves", "You"));
+//logs Hello - Levi - Hashem - Truly - Loves - You 
 
 var matchPairs = function(arrayOfNums, targetNum){
     var newArray = []; 

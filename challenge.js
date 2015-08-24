@@ -9,12 +9,15 @@
 //This should be constant time O(1) being that no matter how large the input is, we are doing the same operation in 
 //terms of time complexity. But I have to look at what .join() does behind the scenes, maybe its still linear time...
 var spaceOutArguments = function(){
+    var str = '';
 
-    var argsArray = Array.prototype.slice.call(arguments);
+    for (var key in arguments){
+        str += arguments[key] + " - ";
+    }
 
-    var argsString = argsArray.join(' - ');
-    return argsString;
+    return str;
 }
+
 
 console.log(spaceOutArguments("Hello", "Levi", "Hashem", "Truly", "Loves", "You"));
 //logs Hello - Levi - Hashem - Truly - Loves - You 
